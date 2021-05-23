@@ -68,6 +68,8 @@ resource "google_compute_instance" "hashicat" {
 
   labels = {
     name = "hashicat"
+    department = "devops"
+    billable = "true"
   }
 
 }
@@ -80,11 +82,7 @@ resource "null_resource" "configure-cat-app" {
   triggers = {
     build_number = timestamp()
   }
-
-  labels = {
-    department = "devops"
-  }
-
+  
   provisioner "file" {
     source      = "files/"
     destination = "/home/ubuntu/"
