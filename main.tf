@@ -81,6 +81,10 @@ resource "null_resource" "configure-cat-app" {
     build_number = timestamp()
   }
 
+  labels = {
+    department = "devops"
+  }
+
   provisioner "file" {
     source      = "files/"
     destination = "/home/ubuntu/"
